@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v6 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v7 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,8 @@
   --terracota:#B86A45; --terracota-d:#9D5638; --arcilla:#D3A88C;
   --oliva:#6E6B4A; --oliva-d:#4A4E3B; --beige:#D9C6AC; --taupe:#C9BFAE;
   --gris:#86887C; --roto:#DED6C6; --marfil:#F3EADC;
-  --arena-2:#F6E2CE; --pecan:#7A4A2A; --mustard:#C08A34; --coral:#C0796A; --teal:#2E6E68;
+  --arena-2:#F6E2CE; --pecan:#7A4A2A; --navy:#082840; --aqua:#4A7A7B; --mustard:#C08A34;
+  --coral:#C0796A; --teal:#2E6E68;
   --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FBF6EC; --blanco:#FFFFFF;
   --linea:rgba(62,66,55,.16);
   --display:'Literata',Georgia,'Times New Roman',serif;
@@ -62,7 +63,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 .vista[hidden]{display:none}
 .hero{padding:56px 0 0}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-bottom:64px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 .72rem var(--inter);letter-spacing:.2em;text-transform:uppercase;color:var(--oliva-d);background:rgba(130,131,98,.14);padding:7px 14px;border-radius:999px;margin-bottom:18px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:600 .72rem var(--inter);letter-spacing:.2em;text-transform:uppercase;color:var(--teal);background:rgba(74,122,123,.13);padding:7px 14px;border-radius:999px;margin-bottom:18px}
 .hero h1{font-weight:600;margin-bottom:18px}
 .hero h1 em{font-style:normal;color:var(--terracota)}
 .hero p.lead{font-size:1.08rem;color:var(--tinta-2);max-width:54ch;margin-bottom:26px}
@@ -85,7 +86,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 @media(max-width:860px){.prog-vis{min-height:auto}.prog-vis.stickers img{width:70px;height:70px}}
 
 /* estadisticas */
-.band-stats{background:var(--oliva);color:#F6F3EA;border-radius:26px;padding:52px 26px;margin:34px 0 0}
+.band-stats{background:var(--aqua);color:#F6F3EA;border-radius:26px;padding:52px 26px;margin:34px 0 0}
 .band-stats h2{color:#F6F3EA;text-align:center;margin-bottom:6px}
 .band-stats .sub{text-align:center;color:rgba(246,243,234,.85);margin-bottom:34px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -126,8 +127,8 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 @media(max-width:860px){.prog .prog-in{grid-template-columns:1fr;padding:24px}}
 .chip-etapa{display:inline-block;font:600 .78rem var(--inter);letter-spacing:.05em;border-radius:999px;padding:6px 13px;margin-bottom:12px}
 .chip.ed1{background:rgba(185,109,83,.14);color:var(--terracota-d)}
-.chip.ed2{background:rgba(93,95,69,.14);color:var(--oliva-d)}
-.chip.ed3{background:rgba(130,131,98,.16);color:var(--oliva-d)}
+.chip.ed2{background:rgba(74,122,123,.14);color:var(--teal)}
+.chip.ed3{background:rgba(46,110,104,.14);color:var(--teal)}
 .prog h3{margin-bottom:10px}
 .prog .desc{color:var(--tinta-2);margin-bottom:18px}
 .formats{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
@@ -136,9 +137,8 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 .prog-side .fase{font-size:.9rem;color:var(--tinta-2)}
 
 /* LABORATORIO ZIBA */
-.lab{background:linear-gradient(160deg,#EDF0E2,#E2E7D4);color:var(--tinta);border:1px solid var(--linea);border-radius:26px;padding:44px 34px;margin:0 0 34px;position:relative;overflow:hidden}
-.lab::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(211,168,140,.30),transparent 65%)}
-.lab .kicker{font:700 .76rem var(--inter);letter-spacing:.2em;text-transform:uppercase;color:var(--oliva-d);margin-bottom:10px}
+.lab{background:#EFE4D0;color:var(--tinta);border:1px solid var(--linea);border-radius:26px;padding:44px 34px;margin:0 0 34px;position:relative;overflow:hidden}
+.lab .kicker{font:700 .76rem var(--inter);letter-spacing:.2em;text-transform:uppercase;color:var(--terracota-d);margin-bottom:10px}
 .lab h3{color:var(--tinta);max-width:22ch;position:relative;z-index:1}
 .lab .lab-desc{color:var(--tinta-2);max-width:64ch;margin:14px 0 28px;position:relative;z-index:1}
 .lab3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:1}
@@ -193,13 +193,13 @@ form.cform input:focus,form.cform select:focus,form.cform textarea:focus{outline
 .donar-box .btn{margin-top:4px}
 
 /* ---------- FOOTER ---------- */
-footer{background:var(--pecan);color:#F6EDE2;margin-top:30px;padding:54px 0 30px}
+footer{background:var(--navy);color:#E9EFF5;margin-top:30px;padding:54px 0 30px}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:30px}
 @media(max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}}
-footer h5{font:600 .8rem var(--inter);letter-spacing:.16em;text-transform:uppercase;color:#FBEFE2;margin-bottom:12px}
-footer a,footer button{display:block;color:#F2E4D6;background:none;border:none;font:inherit;text-decoration:none;padding:3px 0;cursor:pointer;text-align:left}
+footer h5{font:600 .8rem var(--inter);letter-spacing:.16em;text-transform:uppercase;color:#EAF2F8;margin-bottom:12px}
+footer a,footer button{display:block;color:#D8E4EE;background:none;border:none;font:inherit;text-decoration:none;padding:3px 0;cursor:pointer;text-align:left}
 footer a:hover,footer button:hover{color:#fff}
-footer .f-brand{font-family:var(--display);font-weight:700;font-size:1.3rem;color:#FBF1E5}
+footer .f-brand{font-family:var(--display);font-weight:700;font-size:1.3rem;color:#F2F7FB}
 footer .f-brand small{display:block;font:600 .68rem var(--inter);letter-spacing:.2em;text-transform:uppercase;color:#EDDCCB;margin-top:6px}
 .copy{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.28);font-size:.8rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media(max-width:760px){.nav-links{width:100%;order:3;justify-content:flex-start;margin-left:0}}
@@ -227,7 +227,7 @@ header.nav .nav-links button{transition:background .25s var(--ease),color .25s v
 header.nav .nav-links button.on{position:relative}
 
 /* aura calida del hero (canvas 2D) */
-.hero{position:relative}
+.hero{position:relative;overflow:hidden}
 .hero .aura{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .hero-grid{position:relative;z-index:1}
 
@@ -346,8 +346,8 @@ header.nav .nav-inner{position:relative;z-index:1}
 .hero-fx{position:absolute;inset:-130px -120px -110px -120px;z-index:0;pointer-events:none}
 .hfx{position:absolute;border-radius:50%;filter:blur(80px);opacity:.68;will-change:transform;transform:translate3d(0,0,0)}
 .hfx-1{width:470px;height:470px;left:-70px;top:-90px;background:radial-gradient(circle,#E9C9A2,rgba(233,201,162,0) 68%);animation:hero-a 15s ease-in-out infinite alternate}
-.hfx-2{width:530px;height:530px;right:-50px;top:-140px;background:radial-gradient(circle,#D3DAB4,rgba(211,218,180,0) 68%);animation:hero-b 19s ease-in-out infinite alternate}
-.hfx-3{width:480px;height:480px;left:32%;bottom:-200px;background:radial-gradient(circle,#EBD8AE,rgba(235,216,174,0) 68%);animation:hero-c 17s ease-in-out infinite alternate}
+.hfx-2{width:530px;height:530px;right:-50px;top:-140px;background:radial-gradient(circle,#C6DAD8,rgba(198,218,216,0) 68%);animation:hero-b 19s ease-in-out infinite alternate}
+.hfx-3{width:480px;height:480px;left:32%;bottom:-120px;background:radial-gradient(circle,#EBD8AE,rgba(235,216,174,0) 68%);animation:hero-c 17s ease-in-out infinite alternate}
 @keyframes hero-a{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(72px,26px,0) scale(1.16)}}
 @keyframes hero-b{from{transform:translate3d(0,0,0) scale(1.08)}to{transform:translate3d(-86px,20px,0) scale(.9)}}
 @keyframes hero-c{from{transform:translate3d(0,0,0) scale(.94)}to{transform:translate3d(60px,-26px,0) scale(1.2)}}
@@ -372,17 +372,13 @@ header.nav .nav-inner{position:relative;z-index:1}
 /* punto 5 · el recuadro "La prevencion se construye en comunidad" ahora tiene color de la paleta */
 .cta-com{background:var(--arena-2);border:1px solid rgba(184,106,69,.22)}
 
-/* punto 13 · vuelve la grilla de 4 fotos (el CSS viaja con ella) */
-.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
-@media(max-width:900px){.galeria{grid-template-columns:repeat(2,1fr);gap:12px}}
-.gal-item{margin:0;overflow:hidden}
-.gal-marco{overflow:hidden;border-radius:18px;background:var(--card);border:1px solid var(--linea);padding:7px}
-.gal-item img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block;border-radius:12px;transition:transform .9s var(--ease)}
-.gal-item:hover img{transform:scale(1.06)}
-.gal-item figcaption{font:600 .7rem var(--inter);letter-spacing:.14em;text-transform:uppercase;color:var(--gris);margin-top:9px}
-.mask .gal-marco{clip-path:inset(0 0 100% 0);transition:clip-path 1.05s var(--ease);transition-delay:var(--d,0ms)}
-.mask.in .gal-marco{clip-path:inset(0 0 0 0)}
-@media(prefers-reduced-motion:reduce){.mask .gal-marco{clip-path:none!important}}
+/* v7 · los VALORES de la Fundacion (reemplazan la grilla de fotos) */
+.valores{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
+.valor{background:var(--card);border:1px solid var(--linea);border-top:4px solid var(--terracota);border-radius:20px;padding:26px 24px}
+.vnum{font:700 .72rem var(--inter);letter-spacing:.22em;color:var(--terracota-d)}
+.valor h3{margin:8px 0 8px;font-family:var(--display)}
+.valor p{color:var(--tinta-2);font-size:.94rem}
+@media(max-width:860px){.valores{grid-template-columns:1fr;gap:12px}}
 
 /* punto 16 · el Laboratorio en su propia seccion: caja del indice ZIBA */
 .lab-destacado{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--terracota);border-radius:18px;padding:24px 26px;margin-top:20px;position:relative;z-index:1}
@@ -391,7 +387,7 @@ header.nav .nav-inner{position:relative;z-index:1}
 .lab-destacado p{color:var(--tinta-2);max-width:62ch}
 
 /* puntos 17 · la paleta del pie, en tonos de la carta */
-footer .f-brand small{color:#EDDCCB}
+footer .f-brand small{color:#C9D8E6}
 </style>
 </head>
 <body>
@@ -469,12 +465,12 @@ footer .f-brand small{color:#EDDCCB}
         <div class="card"><img class="ill" src="imgs/32-ill-entornos.png" alt="Ilustración: niños jugando frente a una casa"><span class="num">03</span><h3>Entornos seguros</h3><p>Formación para equipos docentes y comunidades educativas, que aprenden a identificar señales de alerta y a responder de forma protectora.</p></div>
       </div>
 
-      <!-- v6 · punto 13: la vitrina sale y vuelve la grilla simple de 4 fotos con etiquetas -->
-      <div class="galeria">
-        <figure class="gal-item"><div class="gal-marco"><img src="imgs/41-foto-talleres.jpg" alt="Niño con uniforme escolar armando torres de colores junto a sus compañeros"></div><figcaption>Talleres con niñas y niños</figcaption></figure>
-        <figure class="gal-item"><div class="gal-marco"><img src="imgs/42-materiales-animalitos.jpg" alt="Hoja de stickers con los animalitos de los programas y sus mensajes"></div><figcaption>Materiales de los programas</figcaption></figure>
-        <figure class="gal-item"><div class="gal-marco"><img src="imgs/43-foto-charlas.jpg" alt="Jornada en un colegio con la comunidad escolar escuchando una charla"></div><figcaption>Charlas para apoderados y docentes</figcaption></figure>
-        <figure class="gal-item"><div class="gal-marco"><img src="imgs/44-foto-familias.jpg" alt="Madre e hija compartiendo en la cocina de su casa"></div><figcaption>Acompañamiento a las familias</figcaption></figure>
+      <!-- ===== v7 · los valores de la Fundación reemplazan la grilla de fotos (pedido de ella) ===== -->
+      <span class="kicker">Nuestros valores</span>
+      <div class="valores">
+        <div class="valor"><span class="vnum">01</span><h3>Excelencia</h3><p>Cuidamos la calidad de cada programa, apoyándonos en la evidencia y en la mejora continua.</p></div>
+        <div class="valor"><span class="vnum">02</span><h3>Trabajo en equipo</h3><p>Colaboramos con las familias, los colegios y las comunidades: la protección se construye entre todos.</p></div>
+        <div class="valor"><span class="vnum">03</span><h3>Humanidad</h3><p>Ponemos a las niñas, niños y adolescentes al centro, con un trato cercano y respetuoso.</p></div>
       </div>
     </div>
   </div>
@@ -499,7 +495,7 @@ footer .f-brand small{color:#EDDCCB}
       </div>
 
       <article class="prog"><div class="accent" style="background:linear-gradient(90deg,var(--terracota),var(--arcilla))"></div><div class="prog-in">
-        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img src="imgs/06-mascota-pangolin.png" alt="Pangolín, mascota del programa Super Poder"></div>
+        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img src="imgs/45-mascota-pangolin.png" alt="Pangolín, mascota del programa Super Poder"></div>
         <div class="prog-body">
           <span class="chip-etapa chip ed1">Prekínder a 6° básico</span>
           <h3>Super Poder</h3>
@@ -554,9 +550,9 @@ footer .f-brand small{color:#EDDCCB}
 
       <div class="lab">
         <div class="lab3">
-          <div class="lb"><b>Medir</b><span>Indicadores y evidencia sobre prevención de violencia sexual en contextos escolares, con el índice ZIBA que creó especialmente la Fundación.</span></div>
+          <div class="lb"><b>Medir</b><span>Indicadores y evidencia sobre prevención de violencia sexual en contextos escolares.</span></div>
           <div class="lb"><b>Investigar</b><span>Estudios aplicados con foco en lo que funciona para niñas, niños y adolescentes en Chile.</span></div>
-          <div class="lb"><b>Evaluar</b><span>Evaluación continua de los programas para mejorarlos con datos reales.</span></div>
+          <div class="lb"><b>Evaluar</b><span>Adecuación continua de los programas con datos reales.</span></div>
         </div>
         <div class="lab-destacado">
           <span class="kicker">Índice ZIBA</span>
@@ -676,7 +672,7 @@ footer .f-brand small{color:#EDDCCB}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v6 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v7 — pendiente de validación</span></div>
   </div>
 </footer>
 
@@ -706,7 +702,7 @@ footer .f-brand small{color:#EDDCCB}
 
   ready(function(){
     /* 1. revelado por scroll (con retardo escalonado entre hermanos) */
-    var sel = '.sec-head, .card, article.prog, .stat, .band-stats, .lab, .lab3 .lb, .cta-com, .persona, .vision-band, .dato-card, .donar-box, form.cform, .gal-item';
+    var sel = '.sec-head, .card, article.prog, .stat, .band-stats, .lab, .lab3 .lb, .cta-com, .persona, .vision-band, .dato-card, .donar-box, form.cform, .valor';
     var items = [].slice.call(document.querySelectorAll(sel));
     items.forEach(function(el){
       if(el.classList.contains('rev')) return;
@@ -718,7 +714,6 @@ footer .f-brand small{color:#EDDCCB}
       a.classList.add('mask');
       var d = a.querySelector('.prog-vis'); if(d) d.classList.add('mask-el');
     });
-    [].slice.call(document.querySelectorAll('.gal-item')).forEach(function(g){ g.classList.add('mask'); });
     function showAll(){ items.forEach(function(e){ e.classList.add('in'); }); }
     if(rm || !('IntersectionObserver' in window)){ showAll(); }
     else{
