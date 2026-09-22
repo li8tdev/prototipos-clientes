@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v9 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v10 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -226,7 +226,7 @@ header.nav .nav-links button{transition:background .25s var(--ease),color .25s v
 header.nav .nav-links button.on{position:relative}
 
 /* aura calida del hero (canvas 2D) */
-.hero{position:relative;overflow:hidden}
+.hero{position:relative}
 .hero .aura{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero .hero-grid{position:relative;z-index:1}
 
@@ -342,11 +342,11 @@ header.nav .nav-inner{position:relative;z-index:1}
 @keyframes barrido{from{transform:translateX(-110%)}to{transform:translateX(500%)}}
 
 /* ===== auras del hero: mismo lenguaje que el header, presentes pero sin repintar ===== */
-.hero-fx{position:absolute;inset:-130px -120px -110px -120px;z-index:0;pointer-events:none}
+.hero-fx{position:absolute;top:-130px;left:50%;transform:translateX(-50%);width:100vw;height:calc(100% + 240px);clip-path:inset(0 0 110px 0);z-index:0;pointer-events:none}
 .hfx{position:absolute;border-radius:50%;filter:blur(80px);opacity:.68;will-change:transform;transform:translate3d(0,0,0)}
-.hfx-1{width:470px;height:470px;left:-70px;top:-90px;background:radial-gradient(circle,#E9C9A2,rgba(233,201,162,0) 68%);animation:hero-a 15s ease-in-out infinite alternate}
-.hfx-2{width:530px;height:530px;right:-50px;top:-140px;background:radial-gradient(circle,#C6DAD8,rgba(198,218,216,0) 68%);animation:hero-b 19s ease-in-out infinite alternate}
-.hfx-3{width:480px;height:480px;left:32%;bottom:-120px;background:radial-gradient(circle,#EBD8AE,rgba(235,216,174,0) 68%);animation:hero-c 17s ease-in-out infinite alternate}
+.hfx-1{width:470px;height:470px;left:-40px;top:-90px;background:radial-gradient(circle,#E9C9A2,rgba(233,201,162,0) 68%);animation:hero-a 15s ease-in-out infinite alternate}
+.hfx-2{width:530px;height:530px;right:-40px;top:-140px;background:radial-gradient(circle,#C6DAD8,rgba(198,218,216,0) 68%);animation:hero-b 19s ease-in-out infinite alternate}
+.hfx-3{width:480px;height:480px;left:34%;top:26%;background:radial-gradient(circle,#EBD8AE,rgba(235,216,174,0) 68%);animation:hero-c 17s ease-in-out infinite alternate}
 @keyframes hero-a{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(72px,26px,0) scale(1.16)}}
 @keyframes hero-b{from{transform:translate3d(0,0,0) scale(1.08)}to{transform:translate3d(-86px,20px,0) scale(.9)}}
 @keyframes hero-c{from{transform:translate3d(0,0,0) scale(.94)}to{transform:translate3d(60px,-26px,0) scale(1.2)}}
@@ -365,8 +365,9 @@ header.nav .nav-inner{position:relative;z-index:1}
    ========================================================================================== */
 
 /* punto 2 · el LOGO de la Fundacion de marca de agua, en grande, en Inicio */
-.hero>.marca-agua{position:absolute;left:1%;top:50%;transform:translateY(-50%);width:min(36%,380px);opacity:.13;pointer-events:none;z-index:0}
-@media(max-width:860px){.hero>.marca-agua{left:2%;top:50%;width:52%;opacity:.10;transform:translateY(-50%)}}
+.hero-agua{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100vw;z-index:0;pointer-events:none}
+.hero-agua img{position:absolute;top:50%;left:5%;transform:translateY(-50%);width:min(40vw,480px);opacity:.13}
+@media(max-width:860px){.hero-agua img{top:32%;left:1%;width:78vw;opacity:.10;transform:none}}
 
 /* punto 5 · el recuadro "La prevencion se construye en comunidad" ahora tiene color de la paleta */
 .cta-com{background:var(--arena-2);border:1px solid rgba(184,106,69,.22)}
@@ -411,9 +412,9 @@ footer .f-brand small{color:#C9D8E6}
 <section class="vista" id="v-inicio">
   <div class="wrap">
     <div class="hero">
-      <!-- v9 · la marca de agua del logo vive DENTRO del hero: antes colgaba del contenedor de las
-           auras y el recorte del hero (que evita el tinte sobre el cuadro de cifras) la cortaba -->
-      <img class="marca-agua" src="imgs/00-simbolo.png" alt="" aria-hidden="true">
+      <!-- v10 · la marca de agua del logo va en su PROPIA capa a sangre completa (100vw): asi se ve
+           entera y con la presencia que pedia Josefina, sin quedar limitada al ancho del contenedor -->
+      <div class="hero-agua" aria-hidden="true"><img src="imgs/00-simbolo.png" alt=""></div>
       <div class="hero-fx" aria-hidden="true">
         <span class="hfx hfx-1"></span><span class="hfx hfx-2"></span><span class="hfx hfx-3"></span>
       </div>
@@ -674,7 +675,7 @@ footer .f-brand small{color:#C9D8E6}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v9 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v10 — pendiente de validación</span></div>
   </div>
 </footer>
 
