@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v8 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v9 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -365,8 +365,8 @@ header.nav .nav-inner{position:relative;z-index:1}
    ========================================================================================== */
 
 /* punto 2 · el LOGO de la Fundacion de marca de agua, en grande, en Inicio */
-.hero-fx .marca-agua{position:absolute;left:3%;top:44%;transform:translateY(-50%);width:min(42%,430px);opacity:.13;pointer-events:none}
-@media(max-width:860px){.hero-fx .marca-agua{left:-14%;top:auto;bottom:-6%;width:76%;opacity:.09;transform:none}}
+.hero>.marca-agua{position:absolute;left:1%;top:50%;transform:translateY(-50%);width:min(36%,380px);opacity:.13;pointer-events:none;z-index:0}
+@media(max-width:860px){.hero>.marca-agua{left:2%;top:50%;width:52%;opacity:.10;transform:translateY(-50%)}}
 
 /* punto 5 · el recuadro "La prevencion se construye en comunidad" ahora tiene color de la paleta */
 .cta-com{background:var(--arena-2);border:1px solid rgba(184,106,69,.22)}
@@ -411,9 +411,10 @@ footer .f-brand small{color:#C9D8E6}
 <section class="vista" id="v-inicio">
   <div class="wrap">
     <div class="hero">
+      <!-- v9 · la marca de agua del logo vive DENTRO del hero: antes colgaba del contenedor de las
+           auras y el recorte del hero (que evita el tinte sobre el cuadro de cifras) la cortaba -->
+      <img class="marca-agua" src="imgs/00-simbolo.png" alt="" aria-hidden="true">
       <div class="hero-fx" aria-hidden="true">
-        <!-- v6 · punto 2: el logo de la Fundacion va de marca de agua, en grande, en Inicio -->
-        <img class="marca-agua" src="imgs/00-simbolo.png" alt="">
         <span class="hfx hfx-1"></span><span class="hfx hfx-2"></span><span class="hfx hfx-3"></span>
       </div>
       <div class="hero-grid">
@@ -465,7 +466,9 @@ footer .f-brand small{color:#C9D8E6}
       </div>
 
       <!-- ===== v7 · los valores de la Fundación reemplazan la grilla de fotos (pedido de ella) ===== -->
-      <span class="kicker">Nuestros valores</span>
+      <div class="sec-head" style="margin-top:16px">
+        <h2>Nuestros valores</h2>
+      </div>
       <div class="valores">
         <div class="valor"><span class="vnum">01</span><h3>Excelencia</h3><p>Cuidamos la calidad de cada programa, apoyándonos en la evidencia y en la mejora continua.</p></div>
         <div class="valor"><span class="vnum">02</span><h3>Trabajo en equipo</h3><p>Colaboramos con las familias, los colegios y las comunidades: la protección se construye entre todos.</p></div>
@@ -671,7 +674,7 @@ footer .f-brand small{color:#C9D8E6}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v8 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v9 — pendiente de validación</span></div>
   </div>
 </footer>
 
