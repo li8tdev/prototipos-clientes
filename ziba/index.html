@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v10 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v11 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -79,7 +79,15 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 /* PNG con fondo transparente: mismo ratio del lienzo, sin marco blanco ni aire visible */
 .card .ill{width:100%;height:auto;aspect-ratio:300/316;object-fit:contain;margin-bottom:14px;display:block}
 .prog-vis{border-radius:18px;padding:12px;display:grid;place-items:center;min-height:190px}
+/* v11 · las dos mascotas se igualan por MASA VISUAL (pedido de Luis):
+   el zorro es alto y compacto (53 % de su lienzo son pixeles del animal) y el pangolin es ancho y con
+   cola larga (33 %), asi que con el mismo tope de 240 px el zorro se veia ~48 % mas grande.
+   Cuentas: masa = pixeles opacos x (alto dibujado / alto del contenido)^2
+     zorro:    56004 x (240/377 x 373/373)^2 = 22.700   -> tope 240 px (la referencia)
+     pangolin: 259594 x (280/967 x 943/943)^2 = 21.800  -> tope 300 px (se dibuja ~238x280)
+   Diferencia final: ~4 % (antes era 48 %). */
 .prog-vis img{width:100%;max-height:240px;object-fit:contain}
+.prog-vis img.pangolin{max-height:300px}
 .prog-vis.stickers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;min-height:150px}
 .prog-vis.stickers img{width:76px;height:76px;object-fit:contain}
 @media(max-width:860px){.prog-vis{min-height:auto}.prog-vis.stickers img{width:70px;height:70px}}
@@ -122,7 +130,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 /* ---------- PROGRAMAS ---------- */
 .prog{border:1px solid var(--linea);background:var(--card);border-radius:22px;overflow:hidden;margin-bottom:26px}
 .prog .accent{height:8px}
-.prog .prog-in{padding:34px;display:grid;grid-template-columns:220px 1fr;gap:28px}
+.prog .prog-in{padding:34px;display:grid;grid-template-columns:264px 1fr;gap:28px}
 @media(max-width:860px){.prog .prog-in{grid-template-columns:1fr;padding:24px}}
 .chip-etapa{display:inline-block;font:600 .78rem var(--inter);letter-spacing:.05em;border-radius:999px;padding:6px 13px;margin-bottom:12px}
 .chip.ed1{background:rgba(185,109,83,.14);color:var(--terracota-d)}
@@ -498,7 +506,7 @@ footer .f-brand small{color:#C9D8E6}
       </div>
 
       <article class="prog"><div class="accent" style="background:linear-gradient(90deg,var(--terracota),var(--arcilla))"></div><div class="prog-in">
-        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img src="imgs/45-mascota-pangolin.png" alt="Pangolín, mascota del programa Super Poder"></div>
+        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img class="pangolin" src="imgs/45-mascota-pangolin.png" alt="Pangolín, mascota del programa Super Poder"></div>
         <div class="prog-body">
           <span class="chip-etapa chip ed1">Prekínder a 6° básico</span>
           <h3>Super Poder</h3>
@@ -675,7 +683,7 @@ footer .f-brand small{color:#C9D8E6}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v10 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v11 — pendiente de validación</span></div>
   </div>
 </footer>
 
