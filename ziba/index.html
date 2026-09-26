@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v11 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v12 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -73,8 +73,8 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(250,248,242,.985);bo
 .ph .ph-in{min-height:340px;display:grid;place-items:center;text-align:center;color:rgba(69,74,65,.55);font:500 .8rem var(--inter);letter-spacing:.04em;padding:24px}
 .ph .ph-in svg{width:54px;height:54px;opacity:.6;margin-bottom:10px}
 .mark img{width:100%;height:100%;object-fit:contain;border-radius:11px;display:block}
-.hero-fig .ph img{width:100%;height:400px;object-fit:cover;display:block}
-@media(max-width:860px){.hero-fig .ph img{height:280px}}
+.hero-fig .ph img{width:100%;height:560px;object-fit:cover;object-position:center 40%;display:block}
+@media(max-width:860px){.hero-fig .ph img{height:auto}}
 /* aspect-ratio identico al de las tres ilustraciones (320x384): no recorta nada */
 /* PNG con fondo transparente: mismo ratio del lienzo, sin marco blanco ni aire visible */
 .card .ill{width:100%;height:auto;aspect-ratio:300/316;object-fit:contain;margin-bottom:14px;display:block}
@@ -378,7 +378,10 @@ header.nav .nav-inner{position:relative;z-index:1}
 @media(max-width:860px){.hero-agua img{top:32%;left:1%;width:78vw;opacity:.10;transform:none}}
 
 /* punto 5 · el recuadro "La prevencion se construye en comunidad" ahora tiene color de la paleta */
-.cta-com{background:var(--arena-2);border:1px solid rgba(184,106,69,.22)}
+/* v12 · pedido de Josefina: los dos recuadros del Laboratorio tenian tonos casi iguales (el contenedor
+   en arena #EFE4D0 y el de cierre en arena-2 #F6E2CE). El de cierre pasa a un tinte del Aqua Blue de su
+   paleta (combinacion 2): frio contra el arena calido = contraste claro pero suave. */
+.cta-com{background:#DEEAE8;border:1px solid rgba(74,122,123,.28)}
 
 /* v7 · los VALORES de la Fundacion (reemplazan la grilla de fotos) */
 .valores{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:16px}
@@ -390,12 +393,27 @@ header.nav .nav-inner{position:relative;z-index:1}
 
 /* punto 16 · el Laboratorio en su propia seccion: caja del indice ZIBA */
 .lab-destacado{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--terracota);border-radius:18px;padding:24px 26px;margin-top:20px;position:relative;z-index:1}
-.lab-destacado .kicker{color:var(--terracota-d);margin:0;min-width:130px}
+/* v12 · pedido de Josefina: las siglas IPZ mas grandes (el resto del recuadro no cambia) */
+.lab-destacado .kicker{color:var(--terracota-d);margin:0;min-width:130px;font-size:1.15rem;letter-spacing:.26em}
 .lab-destacado h3{max-width:32ch;margin-bottom:6px}
 .lab-destacado p{color:var(--tinta-2);max-width:62ch}
 
 /* puntos 17 · la paleta del pie, en tonos de la carta */
 footer .f-brand small{color:#C9D8E6}
+
+/* v12 · pedido de Josefina: en "Nuestro equipo" la palabra "y protección" quedaba sola en la segunda
+   linea. Con text-wrap:balance el navegador reparte las dos lineas parejas
+   ("...en educación, infancia," / "adolescencia y protección."). Si el navegador no lo soporta, el
+   texto se ve exactamente igual que antes: no hay riesgo. */
+.eq-lead{text-wrap:balance}
+
+/* v12 · la pagina nueva VOCES ZIBA (cartas, articulos y conversaciones) */
+.voces-intro{color:var(--tinta-2);max-width:70ch;margin:0 0 28px}
+.voces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
+.voces-grid .card{border-top:4px solid var(--aqua)}
+.voces-grid .kicker{display:block;font:700 .72rem var(--inter);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--terracota-d);margin-bottom:8px}
+@media(max-width:860px){.voces-grid{grid-template-columns:1fr;gap:12px}}
 </style>
 </head>
 <body>
@@ -408,9 +426,10 @@ footer .f-brand small{color:#C9D8E6}
       <button data-go="programas">Programas</button>
       <button data-go="nosotros">Nosotros</button>
       <button data-go="laboratorio">Laboratorio</button>
+      <button data-go="voces">Voces ZIBA</button>
       <button data-go="contacto">Contacto</button>
-      <!-- Prototipo: boton de donacion (opcion 1) apunta a contacto; al final sera el enlace de la pasarela (Mercado Pago) que entregue Josefina -->
-      <a class="btn btn-donar" data-go="contacto">Donar</a>
+      <!-- v12 · Josefina pidio cambiar el boton del menu por "Súmate" (lleva a Contacto, donde esta el boton de donacion) -->
+      <a class="btn btn-donar" data-go="contacto">Súmate</a>
     </nav>
   </div>
 </header>
@@ -430,7 +449,7 @@ footer .f-brand small{color:#C9D8E6}
         <div>
           <span class="eyebrow">Prevención de la violencia sexual</span>
           <h1>Un círculo de protección alrededor de cada <em>niño, niña y adolescente</em></h1>
-          <p class="lead">Fundación ZIBA implementa programas educativos que entregan a las familias, las comunidades escolares y a los niños, niñas y adolescentes, herramientas para prevenir la violencia sexual y construir entornos seguros.</p>
+          <p class="lead">Fundación ZIBA implementa programas educativos que entregan a las familias, a las comunidades escolares y a los niños, niñas y adolescentes, herramientas para prevenir la violencia sexual y construir entornos seguros.</p>
           <div class="hero-ctas">
             <a class="btn btn-terra" data-go="programas">Conoce nuestros programas</a>
             <a class="btn btn-line" data-go="contacto">Súmate como aliado</a>
@@ -438,7 +457,7 @@ footer .f-brand small{color:#C9D8E6}
         </div>
         <div class="hero-fig">
           <figure class="ph">
-            <img src="imgs/40-foto-portada.jpg" alt="Profesora junto a niñas y niños en una sala de clases luminosa">
+            <img src="imgs/46-foto-portada-ninos.jpg" alt="Curso completo de niñas y niños junto a su profesora en una sala de clases">
           </figure>
         </div>
       </div>
@@ -506,10 +525,10 @@ footer .f-brand small{color:#C9D8E6}
       </div>
 
       <article class="prog"><div class="accent" style="background:linear-gradient(90deg,var(--terracota),var(--arcilla))"></div><div class="prog-in">
-        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img class="pangolin" src="imgs/45-mascota-pangolin.png" alt="Pangolín, mascota del programa Super Poder"></div>
+        <div class="prog-vis" style="background:linear-gradient(160deg,#F7E7D8,#EED9C4)"><img class="pangolin" src="imgs/45-mascota-pangolin.png" alt="Pangolín, mascota del programa Yo Cuento"></div>
         <div class="prog-body">
-          <span class="chip-etapa chip ed1">Prekínder a 6° básico</span>
-          <h3>Super Poder</h3>
+          <span class="chip-etapa chip ed1">Prekínder a 5° básico</span>
+          <h3>Yo Cuento</h3>
           <p class="desc">Un programa integral que entrega a niños y niñas herramientas de autocuidado y protección, mientras fortalece a las familias y docentes para construir entornos seguros y protectores.</p>
           <ul class="formats"><li>Charla para apoderados</li><li>Taller para docentes</li><li>Jornadas pedagógicas para niños y niñas</li></ul>
         </div>
@@ -518,7 +537,7 @@ footer .f-brand small{color:#C9D8E6}
       <article class="prog"><div class="accent" style="background:linear-gradient(90deg,var(--oliva-d),var(--oliva))"></div><div class="prog-in">
         <div class="prog-vis" style="background:linear-gradient(160deg,#EBEEDC,#DAE0C6)"><img src="imgs/07-mascota-zorro.png" alt="Zorro, mascota del programa Voz Propia"></div>
         <div class="prog-body">
-          <span class="chip-etapa chip ed2">7° básico a III medio</span>
+          <span class="chip-etapa chip ed2">6° básico a III medio</span>
           <h3>Voz Propia</h3>
           <p class="desc">Un programa para la adolescencia, etapa en que la autoestima, el proyecto de vida y las habilidades sociales se vuelven herramientas centrales de protección frente a la violencia sexual.</p>
           <ul class="formats"><li>Charla para apoderados</li><li>Taller para docentes</li><li>Talleres por niveles</li></ul>
@@ -535,7 +554,7 @@ footer .f-brand small{color:#C9D8E6}
         </div>
         <div class="prog-body">
           <span class="chip-etapa chip ed3">Educación inicial</span>
-          <h3>Niños y niñas tenemos derechos</h3>
+          <h3>Niños y Niñas Tenemos Derechos</h3>
           <p class="desc">Una charla interactiva que introduce a los más pequeños en el mundo de sus propios derechos, usando personajes, ilustraciones y dinámicas pensadas para captar su atención.</p>
           <ul class="formats"><li>Charla interactiva</li><li>Material gráfico</li><li>Guía de acompañamiento</li></ul>
         </div>
@@ -572,8 +591,31 @@ footer .f-brand small{color:#C9D8E6}
       </div>
 
       <div class="cta-com">
-        <div><h3>Impulsando cambios sociales</h3><p>Conversemos sobre investigación aplicada en prevención y sobre cómo colaborar con el Laboratorio ZIBA.</p></div>
+        <div><h3>Impulsando Cambios Sociales</h3><p>Conversemos sobre investigación aplicada en prevención y sobre cómo colaborar con el Laboratorio ZIBA.</p></div>
         <a class="btn btn-terra" data-go="contacto">Contáctanos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOCES ZIBA (v12 · pagina nueva pedida por Josefina) ================= -->
+<section class="vista" id="v-voces" hidden>
+  <div class="wrap">
+    <div class="seccion">
+      <div class="sec-head">
+        <span class="kicker">Ideas y conversaciones</span>
+        <h2>Voces ZIBA</h2>
+        <p>Reflexiones y conversaciones para proteger la infancia.</p>
+      </div>
+      <p class="voces-intro">Un espacio para pensar la prevención en voz alta: cartas, artículos y conversaciones sobre cómo proteger a niñas, niños y adolescentes. Aquí publicamos lo que escribe nuestro equipo y lo que nos llega de las familias y las comunidades escolares.</p>
+      <div class="voces-grid">
+        <div class="card"><span class="kicker">Cartas</span><h3>Cartas</h3><p>Cartas abiertas de nuestro equipo y de quienes trabajan cada día con niñas, niños y adolescentes.</p></div>
+        <div class="card"><span class="kicker">Artículos</span><h3>Artículos</h3><p>Textos breves sobre prevención, evidencia y políticas públicas, escritos en lenguaje claro.</p></div>
+        <div class="card"><span class="kicker">Conversaciones</span><h3>Conversaciones</h3><p>Diálogos con docentes, familias y especialistas sobre la protección de la infancia.</p></div>
+      </div>
+      <div class="cta-com">
+        <div><h3>¿Quieres escribir en Voces ZIBA?</h3><p>Mándanos tu carta, tu artículo o una propuesta de conversación y la publicamos en esta página.</p></div>
+        <a class="btn btn-terra" data-go="contacto">Envíanos tu texto</a>
       </div>
     </div>
   </div>
@@ -595,11 +637,11 @@ footer .f-brand small{color:#C9D8E6}
 
       <div class="sec-head" style="margin-top:56px">
         <h2>Nuestro equipo</h2>
-        <p>Personas con formación y experiencia directa en educación, infancia, adolescencia y protección.</p>
+        <p class="eq-lead">Personas con formación y experiencia directa en educación, infancia, adolescencia y protección.</p>
       </div>
       <div class="equipo">
-        <div class="persona"><div class="avatar" style="background:linear-gradient(140deg,var(--terracota),var(--arcilla))">JB</div><h4>Josefina Botteselle</h4><div class="rol">Fundadora y directora ejecutiva</div><p>Abogada y profesora, diplomada en Protección Integral de Niños, niñas y adolescentes y Justicia Juvenil, Magíster en Políticas Públicas (King's College London). Cuenta con más de 13 años de experiencia en educación, infancia y desarrollo socioemocional.</p></div>
-        <div class="persona"><div class="avatar" style="background:linear-gradient(140deg,var(--oliva-d),var(--oliva))">CP</div><h4>Catherine Peragallo</h4><div class="rol">Miembro del directorio</div><p>Psicóloga clínica, Diplomada en Derechos de los niños, niñas y adolescentes y el sistema judicial en Chile, Master en Neurociencias (Universidad de Salamanca, España). Además, cuenta con más de 16 años de experiencia en psicoterapia en trauma, maltrato grave y abuso sexual infantil.</p></div>
+        <div class="persona"><div class="avatar" style="background:linear-gradient(140deg,var(--terracota),var(--arcilla))">JB</div><h4>Josefina Botteselle</h4><div class="rol">Fundadora y directora ejecutiva</div><p>Abogada y profesora, diplomada en Protección Integral de Niños, Niñas y Adolescentes y Justicia Juvenil (en curso), Magíster en Políticas Públicas (King's College London). Cuenta con más de 13 años de experiencia en educación, infancia y desarrollo socioemocional.</p></div>
+        <div class="persona"><div class="avatar" style="background:linear-gradient(140deg,var(--oliva-d),var(--oliva))">CP</div><h4>Catherine Peragallo</h4><div class="rol">Miembro del directorio</div><p>Psicóloga clínica, Diplomada en Derechos de los Niños, Niñas y Adolescentes y el Sistema Judicial en Chile, Master en Neurociencias (Universidad de Salamanca, España). Además, cuenta con más de 16 años de experiencia en psicoterapia en trauma, maltrato grave y abuso sexual infantil.</p></div>
                 <div class="persona"><div class="avatar" style="background:linear-gradient(140deg,var(--gris),#9DA08E)">SV</div><h4>Sanhdra Vergara</h4><div class="rol">Psicóloga clínica</div><p>Más de 20 años de experiencia trabajando en maltrato grave y abuso sexual infantil, es perito judicial, además de realizar capacitaciones a colegios en detección, prevención y protección.</p></div>
       </div>
 
@@ -652,8 +694,8 @@ footer .f-brand small{color:#C9D8E6}
           <div class="donar-box">
             <h4>Hazte parte</h4>
             <p>Tu aporte financia programas de prevención para niñas, niños y adolescentes. Cualquier monto suma.</p>
-            <!-- Prototipo: boton de pago opcion 1 -> enlace de donacion Mercado Pago que entregara Josefina -->
-            <a class="btn btn-terra" href="#">Donar ahora</a>
+            <!-- v12 · enlace de pago de Mercado Pago que entrego Josefina el 2026-09-26 (opcion 1 del alcance) -->
+            <a class="btn btn-terra" href="https://link.mercadopago.cl/fundacionziba" target="_blank" rel="noopener">Donar ahora</a>
           </div>
         </div>
       </div>
@@ -670,11 +712,12 @@ footer .f-brand small{color:#C9D8E6}
     <div><h5>Sitio</h5>
       <button data-go="inicio">Inicio</button><button data-go="programas">Programas</button>
       <button data-go="laboratorio">Laboratorio</button>
+      <button data-go="voces">Voces ZIBA</button>
       <button data-go="nosotros">Nosotros</button><button data-go="contacto">Contacto</button>
     </div>
     <div><h5>Programas</h5>
-      <button data-go="programas">Super Poder</button><button data-go="programas">Voz Propia</button>
-      <button data-go="programas">Niños y niñas tenemos derechos</button><button data-go="laboratorio">Laboratorio ZIBA</button>
+      <button data-go="programas">Yo Cuento</button><button data-go="programas">Voz Propia</button>
+      <button data-go="programas">Niños y Niñas Tenemos Derechos</button><button data-go="laboratorio">Laboratorio ZIBA</button>
     </div>
     <div><h5>Contacto</h5>
       <span style="display:block;padding:3px 0">fundacionziba@gmail.com</span>
@@ -683,7 +726,7 @@ footer .f-brand small{color:#C9D8E6}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v11 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v12 — pendiente de validación</span></div>
   </div>
 </footer>
 
@@ -701,7 +744,7 @@ footer .f-brand small{color:#C9D8E6}
   }
   navs.forEach(function(el){el.addEventListener('click',function(){go(el.getAttribute('data-go'));});});
   var h=(location.hash||'').replace('#','');
-  if(['inicio','programas','laboratorio','nosotros','contacto'].indexOf(h)>-1){go(h);}
+  if(['inicio','programas','laboratorio','voces','nosotros','contacto'].indexOf(h)>-1){go(h);}
 })();
 </script>
 
