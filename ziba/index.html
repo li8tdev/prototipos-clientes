@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v15 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v16 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -425,14 +425,22 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .card,.mvv-card,.valor,.persona,.dato-card,.prog,.lab3 .lb,.lab,.lab-destacado,.cta-com,.carta,form.cform,.donar-box,.vitrina{
   box-shadow:0 16px 34px -28px rgba(62,66,55,.62)}
 
-/* v14 · la primera carta de Voces ZIBA */
-.carta{background:var(--card);border:1px solid var(--linea);border-radius:26px;padding:46px 44px;max-width:840px}
+/* v16 · la CARTA en FORMATO CARTA (pedido de Josefina, 2026-09-29: "la carta la puedes subir en
+   formato carta, y no con tantos espacios ... no se lee bien de esa forma").
+   Antes (v14): 32 parrafos sueltos con 17 px de hueco entre cada uno (527 px de huecos = 22,8 % del
+   texto, la carta ocupaba 2,87 pantallas) -> se leia a saltos.
+   Ahora: texto CORRIDO justificado con sangria de primera linea y SIN hueco entre parrafos, medida de
+   hoja (780 px) y el cierre con la FIRMA de la autora. El texto sigue VERBATIM. */
+.carta{background:var(--card);border:1px solid var(--linea);border-radius:26px;padding:52px 48px;max-width:780px}
 .carta .kicker{display:block;font:700 .72rem var(--inter);letter-spacing:.18em;text-transform:uppercase;color:var(--terracota-d)}
-.carta h3{font-size:clamp(1.5rem,2.7vw,2.15rem);margin:10px 0 10px;max-width:34ch}
-.carta-meta{font:600 .86rem var(--inter);color:var(--tinta-2);margin:0 0 26px;padding-bottom:20px;border-bottom:1px solid var(--linea)}
-.carta-txt p{color:var(--tinta);font-size:1.03rem;line-height:1.75;margin:0 0 17px;max-width:70ch}
-.carta-txt p:last-child{margin-bottom:0}
-@media(max-width:640px){.carta{padding:26px 20px}.carta-txt p{font-size:1rem}}
+.carta h3{font-size:clamp(1.5rem,2.7vw,2.15rem);margin:10px 0 8px;max-width:34ch}
+.carta-meta{font:600 .86rem var(--inter);color:var(--tinta-2);margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--linea)}
+.carta-txt p{color:var(--tinta);font-size:1.03rem;line-height:1.72;margin:0;max-width:70ch;text-align:justify;
+  text-indent:1.6em;hyphens:auto;-webkit-hyphens:auto;orphans:2;widows:2}
+.carta-txt p:first-child{text-indent:0}
+.carta-txt p.carta-firma{margin-top:28px;text-indent:0;text-align:left;font:600 1.08rem var(--display);color:var(--tinta)}
+.carta-firma span{font:600 .86rem var(--inter);color:var(--tinta-2)}
+@media(max-width:640px){.carta{padding:28px 22px}.carta-txt p{font-size:1rem;text-align:left;hyphens:none}}
 
 /* v12 · la pagina nueva VOCES ZIBA (cartas, articulos y conversaciones) */
 .voces-intro{color:var(--tinta-2);max-width:70ch;margin:0 0 28px}
@@ -640,7 +648,8 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
         <div class="card"><span class="kicker">Artículos</span><h3>Artículos</h3><p>Textos breves sobre prevención, evidencia y políticas públicas, escritos en lenguaje claro.</p></div>
         <div class="card"><span class="kicker">Conversaciones</span><h3>Conversaciones</h3><p>Diálogos con docentes, familias y especialistas sobre la protección de la infancia.</p></div>
       </div>
-      <!-- v14 · la primera CARTA publicada en Voces ZIBA (la mando Josefina el 2026-09-28) -->
+      <!-- v14/v16 · la primera CARTA publicada en Voces ZIBA (la mando Josefina el 2026-09-28);
+           desde la v16 va en formato carta (texto corrido con sangria y firma) -->
       <article class="carta">
         <span class="kicker">Cartas</span>
         <h3>¿Por qué seguimos llegando después del daño?</h3>
@@ -678,6 +687,8 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
           <p>¿qué podríamos haber hecho los adultos para que nunca tuviera que vivirlo?</p>
           <p>Porque una sociedad verdaderamente protectora no es aquella en que los niños aprenden a defenderse solos.</p>
           <p>Es aquella en que los adultos y las instituciones han construido las condiciones para que nunca tengan que hacerlo solos.</p>
+          <!-- v16 · el cierre de la carta, tal como viene en el .docx original (nombre y cargo) -->
+          <p class="carta-firma">Josefina Botteselle<br><span>Fundadora Fundación ZIBA</span></p>
         </div>
       </article>
     </div>
@@ -789,7 +800,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v15 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v16 — pendiente de validación</span></div>
   </div>
 </footer>
 
