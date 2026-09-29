@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v14 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v15 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@
 :root{
   --terracota:#B86A45; --terracota-d:#9D5638; --arcilla:#D3A88C;
   --oliva:#6E6B4A; --oliva-d:#4A4E3B; --beige:#D9C6AC; --taupe:#C9BFAE;
-  --gris:#86887C; --roto:#DED6C6; --marfil:#F3EADC;
+  --gris:#86887C; --roto:#E1DCCB; --marfil:#EDE9DC;
   --arena-2:#F6E2CE; --pecan:#7A4A2A; --navy:#082840; --aqua:#4A7A7B; --mustard:#C08A34;
   --coral:#C0796A; --teal:#2E6E68;
-  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FFFDF7; --blanco:#FFFFFF;
-  --linea:rgba(62,66,55,.22);
+  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FFFFFF; --blanco:#FFFFFF;
+  --linea:rgba(62,66,55,.20);
   --display:'Literata',Georgia,'Times New Roman',serif;
   --inter:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --r:16px;
@@ -414,12 +414,14 @@ footer .f-brand small{color:#C9D8E6}
    tarjetas se despegan. Nada de esto tapa contenido (capas por detras, pointer-events:none). */
 body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
-    radial-gradient(58vw 50vh at 6% -8%, rgba(200,152,128,.16), rgba(200,152,128,0) 62%),
-    radial-gradient(52vw 44vh at 102% 14%, rgba(152,152,128,.13), rgba(152,152,128,0) 60%),
-    radial-gradient(60vw 48vh at 48% 106%, rgba(74,122,123,.10), rgba(74,122,123,0) 64%)}
+    radial-gradient(58vw 50vh at 6% -8%, rgba(74,122,123,.10), rgba(74,122,123,0) 62%),
+    radial-gradient(52vw 44vh at 102% 14%, rgba(110,107,74,.09), rgba(110,107,74,0) 60%),
+    radial-gradient(60vw 48vh at 48% 106%, rgba(160,152,136,.08), rgba(160,152,136,0) 64%)}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-  background-image:radial-gradient(rgba(62,66,55,.055) 1px, rgba(62,66,55,0) 1.3px);
-  background-size:22px 22px}
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .243 0 0 0 0 .259 0 0 0 0 .216 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(62,66,55,.055) 1px, rgba(62,66,55,0) 1.3px);
+  background-size:180px 180px,22px 22px}
 .card,.mvv-card,.valor,.persona,.dato-card,.prog,.lab3 .lb,.lab,.lab-destacado,.cta-com,.carta,form.cform,.donar-box,.vitrina{
   box-shadow:0 16px 34px -28px rgba(62,66,55,.62)}
 
@@ -787,7 +789,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v14 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v15 — pendiente de validación</span></div>
   </div>
 </footer>
 
