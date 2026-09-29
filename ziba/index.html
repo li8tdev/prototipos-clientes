@@ -17,8 +17,8 @@
   --gris:#86887C; --roto:#DED6C6; --marfil:#F3EADC;
   --arena-2:#F6E2CE; --pecan:#7A4A2A; --navy:#082840; --aqua:#4A7A7B; --mustard:#C08A34;
   --coral:#C0796A; --teal:#2E6E68;
-  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FBF6EC; --blanco:#FFFFFF;
-  --linea:rgba(62,66,55,.16);
+  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FFFDF7; --blanco:#FFFFFF;
+  --linea:rgba(62,66,55,.22);
   --display:'Literata',Georgia,'Times New Roman',serif;
   --inter:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --r:16px;
@@ -407,6 +407,31 @@ footer .f-brand small{color:#C9D8E6}
    texto se ve exactamente igual que antes: no hay riesgo. */
 .eq-lead{text-wrap:balance}
 
+
+/* ================== v14 · profundidad del fondo + la primera carta (2026-09-28) ==================
+   Josefina: "el fondo muy rosado palido y da la sensacion de plano". El COLOR de fondo lo elige ella
+   aparte (prototipos/colores.html). Aca se arregla la PLANITUD: el fondo deja de ser un color liso y las
+   tarjetas se despegan. Nada de esto tapa contenido (capas por detras, pointer-events:none). */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(58vw 50vh at 6% -8%, rgba(200,152,128,.16), rgba(200,152,128,0) 62%),
+    radial-gradient(52vw 44vh at 102% 14%, rgba(152,152,128,.13), rgba(152,152,128,0) 60%),
+    radial-gradient(60vw 48vh at 48% 106%, rgba(74,122,123,.10), rgba(74,122,123,0) 64%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(62,66,55,.055) 1px, rgba(62,66,55,0) 1.3px);
+  background-size:22px 22px}
+.card,.mvv-card,.valor,.persona,.dato-card,.prog,.lab3 .lb,.lab,.lab-destacado,.cta-com,.carta,form.cform,.donar-box,.vitrina{
+  box-shadow:0 16px 34px -28px rgba(62,66,55,.62)}
+
+/* v14 · la primera carta de Voces ZIBA */
+.carta{background:var(--card);border:1px solid var(--linea);border-radius:26px;padding:46px 44px;max-width:840px}
+.carta .kicker{display:block;font:700 .72rem var(--inter);letter-spacing:.18em;text-transform:uppercase;color:var(--terracota-d)}
+.carta h3{font-size:clamp(1.5rem,2.7vw,2.15rem);margin:10px 0 10px;max-width:34ch}
+.carta-meta{font:600 .86rem var(--inter);color:var(--tinta-2);margin:0 0 26px;padding-bottom:20px;border-bottom:1px solid var(--linea)}
+.carta-txt p{color:var(--tinta);font-size:1.03rem;line-height:1.75;margin:0 0 17px;max-width:70ch}
+.carta-txt p:last-child{margin-bottom:0}
+@media(max-width:640px){.carta{padding:26px 20px}.carta-txt p{font-size:1rem}}
+
 /* v12 · la pagina nueva VOCES ZIBA (cartas, articulos y conversaciones) */
 .voces-intro{color:var(--tinta-2);max-width:70ch;margin:0 0 28px}
 .voces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
@@ -613,10 +638,46 @@ footer .f-brand small{color:#C9D8E6}
         <div class="card"><span class="kicker">Artículos</span><h3>Artículos</h3><p>Textos breves sobre prevención, evidencia y políticas públicas, escritos en lenguaje claro.</p></div>
         <div class="card"><span class="kicker">Conversaciones</span><h3>Conversaciones</h3><p>Diálogos con docentes, familias y especialistas sobre la protección de la infancia.</p></div>
       </div>
-      <div class="cta-com">
-        <div><h3>¿Quieres escribir en Voces ZIBA?</h3><p>Mándanos tu carta, tu artículo o una propuesta de conversación y la publicamos en esta página.</p></div>
-        <a class="btn btn-terra" data-go="contacto">Envíanos tu texto</a>
-      </div>
+      <!-- v14 · la primera CARTA publicada en Voces ZIBA (la mando Josefina el 2026-09-28) -->
+      <article class="carta">
+        <span class="kicker">Cartas</span>
+        <h3>¿Por qué seguimos llegando después del daño?</h3>
+        <p class="carta-meta">Josefina Botteselle &middot; Fundadora, Fundación ZIBA</p>
+        <div class="carta-txt">
+          <p>Cuando hablamos de violencia sexual contra niños, niñas y adolescentes, gran parte de nuestra conversación comienza cuando el daño ya ocurrió.</p>
+          <p>Hablamos de denuncia. De investigación. De reparación. De tratamiento. De cómo escuchar a un niño que revela una experiencia de violencia y de cómo evitar que el sistema vuelva a dañarlo durante ese proceso.</p>
+          <p>Todo ello es indispensable.</p>
+          <p>Pero existe una pregunta anterior que todavía necesita ocupar mucho más espacio: ¿qué estamos haciendo antes de que ocurra?</p>
+          <p>La pregunta resulta especialmente urgente en Chile. Datos recientes de la Segunda Encuesta Nacional de Polivictimización muestran que un 28,6% de los adolescentes de 12 a 18 años encuestados reportó haber experimentado alguna forma de victimización sexual a lo largo de su vida. Durante los últimos doce meses, la cifra alcanzó un 17%. Detrás de esos porcentajes hay experiencias muy diferentes, desde acoso sexual hasta violación.</p>
+          <p>Por eso necesitamos cambiar la pregunta.</p>
+          <p>Prevenir la violencia sexual infantil no puede consistir únicamente en enseñarles a los niños a defenderse de ella.</p>
+          <p>Durante años, buena parte de los mensajes preventivos se han construido alrededor de lo que el propio niño debe hacer: decir que no, alejarse, pedir ayuda, contar lo ocurrido.</p>
+          <p>Esas herramientas son importantes. Niñas, niños y adolescentes necesitan conocer progresivamente su cuerpo, reconocer sus límites, identificar situaciones que los incomodan, comprender que pueden pedir ayuda y saber que existen adultos dispuestos a escucharlos.</p>
+          <p>Pero un niño no debería cargar con la responsabilidad de evitar su propia victimización.</p>
+          <p>La responsabilidad de proteger siempre es de los adultos.</p>
+          <p>Por eso la prevención debe ocurrir simultáneamente alrededor del niño.</p>
+          <p>Debe ocurrir en una familia donde hablar del cuerpo, de los límites y de las relaciones no sea un tabú.</p>
+          <p>Debe ocurrir en una sala de clases donde un profesor sepa reconocer señales de alerta y cómo responder frente a una revelación.</p>
+          <p>Debe ocurrir en un colegio que no tenga solamente un protocolo guardado para reaccionar cuando sucede algo grave, sino una verdadera cultura de protección.</p>
+          <p>Debe ocurrir también en internet, en las redes sociales, en los videojuegos y en las plataformas donde hoy transcurre una parte importante de la vida de niños y adolescentes.</p>
+          <p>Y debe ocurrir en una sociedad que comprenda que prevenir es mucho más que advertir sobre el peligro.</p>
+          <p>La evidencia internacional muestra que los programas educativos de prevención pueden mejorar los conocimientos y fortalecer habilidades y conductas protectoras. También sabemos que la posibilidad de recurrir a un adulto de confianza que escuche con empatía puede ser determinante cuando un niño o adolescente necesita contar algo que le está ocurriendo.</p>
+          <p>Por eso necesitamos avanzar desde una prevención centrada exclusivamente en el niño hacia una prevención integral, utilizando la educación como la herramienta más poderosa que tenemos.</p>
+          <p>Niños que cuentan con conocimientos y herramientas acordes con su edad.</p>
+          <p>Familias que saben conversar, escuchar y proteger.</p>
+          <p>Comunidades educativas capaces de prevenir, detectar y actuar.</p>
+          <p>Instituciones que construyen entornos seguros.</p>
+          <p>Y una sociedad que entiende que la violencia sexual contra niños, niñas y adolescentes no es inevitable.</p>
+          <p>Prevenir no significa generar miedo. Tampoco significa enseñar a los niños que el mundo es peligroso.</p>
+          <p>Significa exactamente lo contrario.</p>
+          <p>Significa entregarles herramientas para crecer con seguridad, autonomía y confianza, mientras los adultos asumimos la responsabilidad que nos corresponde: construir los entornos que hagan posible esa seguridad.</p>
+          <p>Quizás entonces podamos empezar a cambiar la pregunta.</p>
+          <p>En lugar de preguntarnos únicamente qué hacemos cuando un niño nos cuenta que algo ocurrió, comenzar a preguntarnos también:</p>
+          <p>¿qué podríamos haber hecho los adultos para que nunca tuviera que vivirlo?</p>
+          <p>Porque una sociedad verdaderamente protectora no es aquella en que los niños aprenden a defenderse solos.</p>
+          <p>Es aquella en que los adultos y las instituciones han construido las condiciones para que nunca tengan que hacerlo solos.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
