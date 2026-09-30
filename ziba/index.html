@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>Fundación ZIBA — Prototipo v13 (para revisión)</title>
+<title>Fundación ZIBA — Prototipo v18 (para revisión)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,11 +14,11 @@
 :root{
   --terracota:#B86A45; --terracota-d:#9D5638; --arcilla:#D3A88C;
   --oliva:#6E6B4A; --oliva-d:#4A4E3B; --beige:#D9C6AC; --taupe:#C9BFAE;
-  --gris:#86887C; --roto:#DED6C6; --marfil:#F3EADC;
+  --gris:#86887C; --roto:#E1DCCB; --marfil:#EDE9DC;
   --arena-2:#F6E2CE; --pecan:#7A4A2A; --navy:#082840; --aqua:#4A7A7B; --mustard:#C08A34;
   --coral:#C0796A; --teal:#2E6E68;
-  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FBF6EC; --blanco:#FFFFFF;
-  --linea:rgba(62,66,55,.16);
+  --tinta:#3E4237; --tinta-2:#5B5F53; --card:#FFFFFF; --blanco:#FFFFFF;
+  --linea:rgba(62,66,55,.20);
   --display:'Literata',Georgia,'Times New Roman',serif;
   --inter:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --r:16px;
@@ -407,6 +407,41 @@ footer .f-brand small{color:#C9D8E6}
    texto se ve exactamente igual que antes: no hay riesgo. */
 .eq-lead{text-wrap:balance}
 
+
+/* ================== v14 · profundidad del fondo + la primera carta (2026-09-28) ==================
+   Josefina: "el fondo muy rosado palido y da la sensacion de plano". El COLOR de fondo lo elige ella
+   aparte (prototipos/colores.html). Aca se arregla la PLANITUD: el fondo deja de ser un color liso y las
+   tarjetas se despegan. Nada de esto tapa contenido (capas por detras, pointer-events:none). */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(58vw 50vh at 6% -8%, rgba(74,122,123,.10), rgba(74,122,123,0) 62%),
+    radial-gradient(52vw 44vh at 102% 14%, rgba(110,107,74,.09), rgba(110,107,74,0) 60%),
+    radial-gradient(60vw 48vh at 48% 106%, rgba(160,152,136,.08), rgba(160,152,136,0) 64%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .243 0 0 0 0 .259 0 0 0 0 .216 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(62,66,55,.055) 1px, rgba(62,66,55,0) 1.3px);
+  background-size:180px 180px,22px 22px}
+.card,.mvv-card,.valor,.persona,.dato-card,.prog,.lab3 .lb,.lab,.lab-destacado,.cta-com,.carta,form.cform,.donar-box,.vitrina{
+  box-shadow:0 16px 34px -28px rgba(62,66,55,.62)}
+
+/* v16 · la CARTA en FORMATO CARTA (pedido de Josefina, 2026-09-29: "la carta la puedes subir en
+   formato carta, y no con tantos espacios ... no se lee bien de esa forma").
+   Antes (v14): 32 parrafos sueltos con 17 px de hueco entre cada uno (527 px de huecos = 22,8 % del
+   texto, la carta ocupaba 2,87 pantallas) -> se leia a saltos.
+   Ahora: texto CORRIDO justificado con sangria de primera linea y SIN hueco entre parrafos, medida de
+   hoja (780 px) y el cierre con la FIRMA de la autora. El texto sigue VERBATIM. */
+.carta{background:var(--card);border:1px solid var(--linea);border-radius:26px;padding:52px 48px;max-width:780px}
+.carta .kicker{display:block;font:700 .72rem var(--inter);letter-spacing:.18em;text-transform:uppercase;color:var(--terracota-d)}
+.carta h3{font-size:clamp(1.5rem,2.7vw,2.15rem);margin:10px 0 8px;max-width:34ch}
+.carta-meta{font:600 .86rem var(--inter);color:var(--tinta-2);margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--linea)}
+.carta-txt p{color:var(--tinta);font-size:1.03rem;line-height:1.72;margin:0;max-width:70ch;text-align:justify;
+  text-indent:1.6em;hyphens:auto;-webkit-hyphens:auto;orphans:2;widows:2}
+.carta-txt p:first-child{text-indent:0}
+.carta-txt p.carta-firma{margin-top:28px;text-indent:0;text-align:left;font:600 1.08rem var(--display);color:var(--tinta)}
+.carta-firma span{font:600 .86rem var(--inter);color:var(--tinta-2)}
+@media(max-width:640px){.carta{padding:28px 22px}.carta-txt p{font-size:1rem;text-align:left;hyphens:none}}
+
 /* v12 · la pagina nueva VOCES ZIBA (cartas, articulos y conversaciones) */
 .voces-intro{color:var(--tinta-2);max-width:70ch;margin:0 0 28px}
 .voces-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}
@@ -613,10 +648,31 @@ footer .f-brand small{color:#C9D8E6}
         <div class="card"><span class="kicker">Artículos</span><h3>Artículos</h3><p>Textos breves sobre prevención, evidencia y políticas públicas, escritos en lenguaje claro.</p></div>
         <div class="card"><span class="kicker">Conversaciones</span><h3>Conversaciones</h3><p>Diálogos con docentes, familias y especialistas sobre la protección de la infancia.</p></div>
       </div>
-      <div class="cta-com">
-        <div><h3>¿Quieres escribir en Voces ZIBA?</h3><p>Mándanos tu carta, tu artículo o una propuesta de conversación y la publicamos en esta página.</p></div>
-        <a class="btn btn-terra" data-go="contacto">Envíanos tu texto</a>
-      </div>
+      <!-- v14/v16/v17/v18 · la CARTA de Voces ZIBA: la mando Josefina el 2026-09-28 y el 2026-09-29
+           mando la version REVISADA (texto corrido, con quites); desde la v17 se publica esa.
+           La v18 solo cambia el TITULO, por pedido suyo del 2026-09-30 (antes: "...despues del dano?"),
+           con los DOS arreglos minimos de tipeo que aprobo Luis -->
+      <article class="carta">
+        <span class="kicker">Cartas</span>
+        <h3>¿Por qué seguimos llegando tarde?</h3>
+        <p class="carta-meta">Josefina Botteselle &middot; Fundadora, Fundación ZIBA</p>
+        <div class="carta-txt">
+          <p>Cuando hablamos de violencia sexual contra niños, niñas y adolescentes, gran parte de nuestra conversación comienza cuando el daño ya ocurrió. Hablamos de denuncia, de investigación, de reparación, de cómo escuchar a un niño que revela una experiencia de violencia y de cómo evitar que el sistema vuelva a dañarlo durante ese proceso. Todo ello es indispensable, pero existe una pregunta anterior que todavía necesita ocupar mucho más espacio: ¿qué estamos haciendo antes de que ocurra?</p>
+          <p>La pregunta resulta especialmente urgente en Chile. Datos recientes de la Segunda Encuesta Nacional de Polivictimización muestran que un 28,6% de los adolescentes de 12 a 18 años encuestados reportó haber experimentado alguna forma de victimización sexual a lo largo de su vida. Durante los últimos doce meses, la cifra alcanzó un 17%.</p>
+          <p>Por eso necesitamos cambiar la pregunta, ya que prevenir la violencia sexual infantil no puede consistir únicamente en enseñarles a los niños a defenderse de ella.</p>
+          <p>Durante años, buena parte de los mensajes preventivos se han construido alrededor de lo que el propio niño debe hacer: decir que no, alejarse, pedir ayuda, contar lo ocurrido y aunque esas herramientas son importantes, debemos enseñar a las niñas, niños y adolescentes a conocer progresivamente su cuerpo, reconocer sus límites, y comprender que la responsabilidad de proteger siempre es de los adultos.</p>
+          <p>Por eso la prevención debe ocurrir simultáneamente alrededor del niño. Debe ocurrir en una familia donde hablar del cuerpo, de los límites y de las relaciones no sea un tabú. Debe ocurrir en una sala de clases donde un profesor sepa reconocer señales de alerta y cómo responder frente a una revelación. Debe ocurrir en un colegio que no tenga solamente un protocolo guardado para reaccionar cuando sucede algo grave, sino una verdadera cultura de protección. Debe ocurrir también en internet, en las redes sociales, en los videojuegos y en las plataformas donde hoy transcurre una parte importante de la vida de niños y adolescentes. Y debe ocurrir en una sociedad que comprenda que prevenir es mucho más que advertir sobre el peligro.</p>
+          <p>La evidencia internacional muestra que los programas educativos de prevención pueden mejorar los conocimientos y fortalecer habilidades y conductas protectoras. También sabemos que la posibilidad de recurrir a un adulto de confianza que escuche con empatía puede ser determinante cuando un niño o adolescente necesita contar algo que le está ocurriendo.</p>
+          <p>Por eso necesitamos avanzar desde una prevención centrada exclusivamente en el niño hacia una prevención integral, utilizando la educación como la herramienta más poderosa que tenemos.</p>
+          <p>Niños que cuentan con conocimientos y herramientas acordes con su edad. Familias que saben conversar, escuchar y proteger. Comunidades educativas capaces de prevenir, detectar y actuar. Instituciones que construyen entornos seguros. Y una sociedad que entiende que la violencia sexual contra niños, niñas y adolescentes no es inevitable.</p>
+          <p>Prevenir no significa generar miedo. Tampoco significa enseñar a los niños que el mundo es peligroso. Significa exactamente lo contrario. Significa entregarles herramientas para crecer con seguridad, autonomía y confianza, mientras los adultos asumimos la responsabilidad que nos corresponde: construir los entornos que hagan posible esa seguridad.</p>
+          <p>Quizás entonces podamos empezar a cambiar la pregunta.</p>
+          <p>En lugar de preguntarnos únicamente qué hacemos cuando un niño nos cuenta que algo ocurrió, comenzar a preguntarnos también: ¿qué podríamos haber hecho los adultos para que nunca tuviera que vivirlo? Porque una sociedad verdaderamente protectora no es aquella en que los niños aprenden a defenderse solos.</p>
+          <p>Es aquella en que los adultos y las instituciones han construido las condiciones para que nunca tengan que hacerlo solos.</p>
+          <!-- v17 · el cierre de la carta, tal como viene en su .docx (nombre y cargo) -->
+          <p class="carta-firma">Josefina Botteselle<br><span>Fundadora Fundación ZIBA</span></p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -726,7 +782,7 @@ footer .f-brand small{color:#C9D8E6}
     </div>
   </div>
   <div class="wrap">
-    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v13 — pendiente de validación</span></div>
+    <div class="copy"><span>© 2026 Fundación ZIBA. Todos los derechos reservados.</span><span>Prototipo v18 — pendiente de validación</span></div>
   </div>
 </footer>
 
